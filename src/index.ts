@@ -12,7 +12,7 @@ export function log(
   switch (level) {
     case "info":
       levelTag = "INFO";
-      color = chalk.greenBright;
+      color = chalk.hex("#8A2BE2").bold;
       break;
     case "warn":
       levelTag = "WARN";
@@ -24,7 +24,7 @@ export function log(
       break;
     default:
       levelTag = "INFO";
-      color = chalk.greenBright;
+      color = chalk.hex("#8A2BE2").bold;
       break;
   }
 
