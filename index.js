@@ -13,7 +13,7 @@ function log(message, level = "info") {
     switch (level) {
         case "info":
             levelTag = "INFO";
-            color = chalk_1.default.greenBright;
+            color = chalk_1.default.hex("#8A2BE2").bold;
             break;
         case "warn":
             levelTag = "WARN";
@@ -25,7 +25,7 @@ function log(message, level = "info") {
             break;
         default:
             levelTag = "INFO";
-            color = chalk_1.default.greenBright;
+            color = chalk_1.default.hex("#8A2BE2").bold;
             break;
     }
     const logMessage = `[${timestamp}] [${levelTag}] ${message}`;
