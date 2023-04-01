@@ -28,7 +28,13 @@ function log(message, level = "info") {
             color = chalk_1.default.hex("#8A2BE2").bold;
             break;
     }
-    const logMessage = `[${timestamp}] [${levelTag}] ${message}`;
-    console.log(color(logMessage));
+    const logMessage = `[${timestamp}] [${levelTag}]`;
+    if (typeof message === "object") {
+        console.log(color(logMessage));
+        console.dir(message, { colors: true });
+    }
+    else {
+        console.log(color(`${logMessage} ${message}`));
+    }
 }
 exports.log = log;

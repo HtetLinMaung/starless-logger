@@ -1,1 +1,1 @@
-export declare function log(message: string, level?: "info" | "warn" | "error"): void;
+export declare function log(message: string | object | any[], level?: "info" | "warn" | "error"): void;

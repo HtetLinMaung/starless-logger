@@ -1,7 +1,7 @@
 import chalk, { Chalk } from "chalk";
 
 export function log(
-  message: string,
+  message: string | object | any[],
   level: "info" | "warn" | "error" = "info"
 ) {
   const now = new Date();
@@ -28,7 +28,12 @@ export function log(
       break;
   }
 
-  const logMessage = `[${timestamp}] [${levelTag}] ${message}`;
+  const logMessage = `[${timestamp}] [${levelTag}]`;
 
-  console.log(color(logMessage));
+  if (typeof message === "object") {
+    console.log(color(logMessage));
+    console.dir(message, { colors: true });
+  } else {
+    console.log(color(`${logMessage} ${message}`));
+  }
 }
