@@ -1,11 +1,16 @@
 import chalk, { Chalk } from "chalk";
+import moment from "moment";
 
 export function log(
   message: string | object | any[],
-  level: "info" | "warn" | "error" = "info"
+  level: "info" | "warn" | "error" = "info",
+  options: { timestampFormat?: string }
 ) {
   const now = new Date();
-  const timestamp = now.toISOString();
+  let timestamp = now.toISOString();
+  if (options.timestampFormat) {
+    timestamp = moment().format(options.timestampFormat);
+  }
   let levelTag = "";
   let color: Chalk;
 
@@ -36,4 +41,5 @@ export function log(
   } else {
     console.log(color(`${logMessage} ${message}`));
   }
+  return logMessage;
 }
