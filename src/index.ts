@@ -4,7 +4,7 @@ import moment from "moment";
 export function log(
   message: string | object | any[],
   level: "info" | "warn" | "error" = "info",
-  options: { timestampFormat?: string }
+  options: { timestampFormat?: string } = {}
 ) {
   const now = new Date();
   let timestamp = now.toISOString();
